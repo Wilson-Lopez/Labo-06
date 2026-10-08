@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Laboratorio06.Data/Laboratorio06.Data.csproj" />
+  <Project Path="Laboratorio06/Laboratorio06.csproj" />
+</Solution>

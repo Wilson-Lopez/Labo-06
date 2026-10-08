@@ -1,0 +1,60 @@
+﻿<Window x:Class="Laboratorio06.PedidosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gestión de Pedidos" Height="600" Width="900"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Mantenimiento de Pedidos" FontSize="20" FontWeight="Bold" Foreground="#1E3A8A" Margin="0,0,0,10"/>
+
+        <!-- Formulario CRUD -->
+        <Border Grid.Row="1" Background="#F8FAFC" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6" Padding="10" Margin="0,0,0,10">
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="ID Pedido:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox x:Name="txtIdPedido" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Background="#E2E8F0" Margin="5"/>
+
+                    <TextBlock Text="Destinatario:" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox x:Name="txtDestinatario" Grid.Row="0" Grid.Column="3" Margin="5"/>
+
+                    <TextBlock Text="Fecha Pedido:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                    <DatePicker x:Name="dtpFechaPedido" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+                    <TextBlock Text="Ciudad Destino:" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox x:Name="txtCiudadDestino" Grid.Row="1" Grid.Column="3" Margin="5"/>
+
+                    <TextBlock Text="País Destino:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                    <TextBox x:Name="txtPaisDestino" Grid.Row="2" Grid.Column="1" Margin="5"/>
+                </Grid>
+
+                <WrapPanel HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Button x:Name="btnNuevo" Content="Nuevo" Width="90" Height="28" Margin="5" Click="btnNuevo_Click"/>
+                    <Button x:Name="btnGuardar" Content="Guardar" Width="90" Height="28" Margin="5" Background="#16A34A" Foreground="White" Click="btnGuardar_Click"/>
+                    <Button x:Name="btnActualizar" Content="Actualizar" Width="90" Height="28" Margin="5" Background="#CA8A04" Foreground="White" Click="btnActualizar_Click"/>
+                    <Button x:Name="btnEliminar" Content="Eliminar" Width="90" Height="28" Margin="5" Background="#DC2626" Foreground="White" Click="btnEliminar_Click"/>
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="dgPedidos" Grid.Row="2" AutoGenerateColumns="True" IsReadOnly="True" 
+                  SelectionMode="Single" AlternatingRowBackground="#F1F5F9" SelectionChanged="dgPedidos_SelectionChanged"/>
+    </Grid>
+</Window>
